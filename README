@@ -1,0 +1,50 @@
+Organization of the archive
+
+ARM/     arm source example and compilation with libmincaml   
+asml/    asml examples
+doc/     all the documentation, start with index.hml
+java/    MinCaml parser in Java + examples of tree traversal algo, if you do 
+         the project in java  
+mincaml/ MinCaml examples
+ocaml/   MinCaml parser in OCaml, if you do the project in OCaml
+scripts/ put your test scripts and symbolic links there, and add this 
+         directory to your path
+tests/   put your tests there
+tools/   asml intepreter (linux binary)
+
+We recommend that you add scripts/ and the dir that contains mincamlc to your
+PATH.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+LAUNCHING THE COMPILER
+1. Pull project from GIT
+2. enter main directory of project and type "make" to compile the whole project. the compiler will now be ready to use
+
+RUNNING TEST FILES
+GENERATING FROM .ML TO .ASML FILES
+all test files can be located in the "tests". this contains tests for typechecking,asml generation, syntax and gen-code.
+to run test files, open the command line interface from the project and enter the following;
+before the command we need to change directory to the "java" folder so we can easily access the mincamlc.
+from the terminal we can now enter the following
+ - ./mincamlc [../filelocation/filename.ml]
+ example;
+ - ./mincamlc ../tests/asmlcheck/fib.ml
+ - ./mincamlc ../tests/gen-code/ack.ml
+ 
+ WRITING TO FILES
+ we can write the output of a compiled file to a file with any extension but we mostly prefer to use a  .txt file.
+ to write the standard output of the file to the text file, we use the following command;
+- ./mincamlc [../filelocation/filename] -o [outputfile.txt]
+example
+- ./mincamlc -i ../mincaml/ack.ml -o result.txt
+
+GENERATING FROM .ASML TO ARM
+for generating ARM code from ASML files, we simplyrun the following commands from the main folder.
+- ./ASML2ASMpyt/main.py -f [filepath/filename.asml]
+example;
+- ./ASML2ASMpyt/main.py -f ./asml/array.asml
+the above command will give us the ARM equivalent of the ASML file
+ 
+***more details on various command option can be found in the user manual***
+
